@@ -1,6 +1,6 @@
 .calc{
-    height: 650px;
-    width: 470px;
+    height: 560px;
+    width: 390px;
     border: 1px solid red;
     border-radius: 50px;
     position: absolute;
@@ -11,10 +11,10 @@
 
 .display{
     height: 100px;
-    width: 420px;
+    width: 340px;
     border: 1px solid red;
     border-radius: 20px;
-    position: absolute;
+    position: relative;
     top: 25px;
     left: 24px;
 }
@@ -23,13 +23,12 @@
     position: absolute;
     top: 125px;
     display: flex;
-    flex-wrap: wrap;
-    
+    flex-wrap: wrap;    
 }
 
 .buttons{
-    height: 100px;
-    width: 90px;
+    height: 80px;
+    width: 70px;
     border: 1px solid black;
     margin-top: 20px; 
     margin-left: 20px;
@@ -38,10 +37,14 @@
     align-items: center; 
     font-size: large; 
     font-weight: bold;
+    border-radius: 20px;
 }
 
-.display_upper{
-    height: 50px;
-    border-bottom: 1px solid blue;
-    text-align: center;
+.display_upper, .display_lower{
+    height: 45px;
+    display: flex;
+    align-items: end;
+    justify-content: end;
+    padding-right: 20px;
+    font-size: 20px;
 }

@@ -2,6 +2,7 @@ var number = document.querySelectorAll(".number")
 var display = document.querySelector(".display_upper")
 var displayL = document.querySelector(".display_lower")
 var operator = document.querySelectorAll(".operator")
+var equalsTo = document.querySelector(".equalsto")
 var operator_count = 0
 
 number.forEach(numb => {
@@ -18,11 +19,13 @@ operator.forEach(op => {
         }
         else{
             operation(display.textContent,op.textContent)
-            operator_count = 0
         }
     })
 })
 
+equalsTo.addEventListener('click',()=>{
+    operation(display.textContent,"")
+})
 
 function operation(expression,nextOperator){
     let equation = expression.split(" ")
@@ -37,7 +40,7 @@ function operation(expression,nextOperator){
         case "-":
             subtract(firstNumber,secondNumber, nextOperator)
             break;
-        case "X":
+        case "x":
             multiply(firstNumber,secondNumber, nextOperator)
             break;
         case "÷":
@@ -63,7 +66,15 @@ function divide(firstNumber,secondNumber, nextOperator){
 }
 
 function result(finalResult,nextOperator){
-    displayL.textContent = finalResult
-    display.textContent = finalResult + " " + nextOperator
+    if (nextOperator !=""){
+        displayL.textContent = finalResult
+        //display.textContent = finalResult + " " + nextOperator + " "
+        operator_count++
+    }
+    else{
+        //displayL.textContent = finalResult
+        display.textContent = finalResult
+        operator_count = 0
+    }
 }
 
