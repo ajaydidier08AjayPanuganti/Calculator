@@ -1,9 +1,14 @@
 var number = document.querySelectorAll(".number")
 var display = document.querySelector(".display_upper")
-var displayL = document.querySelector(".display_lower")
 var operator = document.querySelectorAll(".operator")
 var equalsTo = document.querySelector(".equalsto")
+var clear = document.querySelector(".clear")
 var operator_count = 0
+
+
+clear.addEventListener('click',()=>{
+    display.textContent = ""
+})
 
 number.forEach(numb => {
     numb.addEventListener('click',()=>{
@@ -32,20 +37,25 @@ function operation(expression,nextOperator){
     let firstNumber = Number(equation[0])
     let firstOperator = equation[1]
     let secondNumber = Number(equation[2])
+    
+    if (firstNumber == "" || secondNumber == "") 
+        return
 
-    switch(firstOperator){
-        case "+":
-            add(firstNumber,secondNumber, nextOperator)
-            break;
-        case "-":
-            subtract(firstNumber,secondNumber, nextOperator)
-            break;
-        case "x":
-            multiply(firstNumber,secondNumber, nextOperator)
-            break;
-        case "÷":
-            divide(firstNumber,secondNumber, nextOperator)
-            break;
+    else{
+        switch(firstOperator){
+            case "+":
+                add(firstNumber,secondNumber, nextOperator)
+                break;
+            case "-":
+                subtract(firstNumber,secondNumber, nextOperator)
+                break;
+            case "x":
+                multiply(firstNumber,secondNumber, nextOperator)
+                break;
+            case "÷":
+                divide(firstNumber,secondNumber, nextOperator)
+                break;
+        }
     }
 }
 
@@ -62,19 +72,18 @@ function multiply(firstNumber,secondNumber, nextOperator){
 }
 
 function divide(firstNumber,secondNumber, nextOperator){
-    result(firstNumber / secondNumber, nextOperator)
+    result((firstNumber / secondNumber).toFixed(2), nextOperator)
 }
 
 function result(finalResult,nextOperator){
     if (nextOperator !=""){
-        displayL.textContent = finalResult
-        //display.textContent = finalResult + " " + nextOperator + " "
+        display.textContent = finalResult + " " + nextOperator + " "
         operator_count++
     }
     else{
-        //displayL.textContent = finalResult
         display.textContent = finalResult
         operator_count = 0
     }
 }
+
 

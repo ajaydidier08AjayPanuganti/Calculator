@@ -1,12 +1,21 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Cabin&family=Libre+Baskerville&display=swap');
+
+body{
+    font-family: 'Cabin', sans-serif;
+    font-family: 'Libre Baskerville', serif;
+}
+
 .calc{
     height: 560px;
     width: 390px;
-    border: 1px solid red;
+    border: 3px solid red;
     border-radius: 50px;
     position: absolute;
     top: 200px;
     left: 37%;
     display: flex;
+    background-color: #660000;
 }
 
 .display{
@@ -17,34 +26,44 @@
     position: relative;
     top: 25px;
     left: 24px;
+    background-color: #FFFFFF;
+    font-size: 20px;
+    font-weight: bolder;
+    color: #8F0000;
 }
 
 .keypad{
     position: absolute;
     top: 125px;
     display: flex;
-    flex-wrap: wrap;    
+    flex-wrap: wrap;  
 }
 
 .buttons{
     height: 80px;
     width: 70px;
-    border: 1px solid black;
+    border: 1px solid red;
     margin-top: 20px; 
     margin-left: 20px;
     display: flex;
     justify-content: center;
     align-items: center; 
-    font-size: large; 
+    font-size: 20px; 
     font-weight: bold;
     border-radius: 20px;
+    background-color: #8F0000;
+    color: #FFFFFF;
 }
 
-.display_upper, .display_lower{
-    height: 45px;
+.display_upper{
+    height: 60px;
     display: flex;
     align-items: end;
     justify-content: end;
-    padding-right: 20px;
+    padding-right: 30px;
+    font-size: 20px;
+}
+
+.operator{
     font-size: 20px;
 }
